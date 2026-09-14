@@ -1,0 +1,116 @@
+Azure
+
+Module 01:
+	Introduction to Cloud computing
+	What is Microsoft azure
+	Microsoft Azure services
+	Creating an account in Azure
+	Different ways of accessing Microsoft Azure
+
+Introduction to Cloud computing:
+ Disadvantages on on-premise:
+	Scalability : Need to increase hardware as user demand increases; need to increase staff to maintain the servers.
+	Cost: High upfront expenses and capital expenditure; high maintenance cost 
+	Server maintenance: Servers need to be managed and monitored continuously
+	Slow Data recovery : Takes more time to recover data; requires high budget and resources.
+
+ What is cloud computing
+	Cloud computing is the on-demand delivery of computing services—such as data storage, servers, databases, networking, and software—over the internet with a pay-as-you-go pricing model
+
+Types of Cloud Models:
+	Cloud models are basically different business models adopted by a cloud provider.
+	They operate on two models: Service model and Deployment model
+
+Service Models: IaaS, PaaS, SaaS
+	Infrastructure as a Service: Infrastructure as a Service gives full access to the server. You can install any custom software on this server as if it your own infrastructure. VMs, storages etc...
+		Pizza as a service :
+		    Provider managed: Cheese, Toppings, Tomato Sauce, Pizza Dough
+		    Customer managed: Fire, Oven, electric/gas, soda, Dinig table
+		In real world :
+		    Provider Managed: Netowrking, storage, server, virtualization, OS
+		    Customer Managed: Middleware, Runtime, Data, Applications.
+
+	Platform as a service: As opposed to IaaS, in PaaS, we do not get access to the whole server. We get a pre configured server in which we are limited to only changing a few setting. Application services, dbs, MySQL,...
+		Pizza as a service :
+		    Provider managed: Cheese, Toppings, Tomato Sauce, Pizza Dough,Fire, Oven, electric/gas
+		    Customer managed:  soda, Dinig table
+		In real world :
+		    Provider Managed: Netowrking, storage, server, virtualization, OS, Middleware, Runtime,
+		    Customer Managed: Data, Applications.
+
+	Software as a Service:SaaS means delivering a whole software to a customer as a service, so the customer can directly access and use the software without installing or updating anything. 0365,...
+		Pizza as a service :
+		    Provider managed: Cheese, Toppings, Tomato Sauce, Pizza Dough,Fire, Oven, electric/gas, soda, Dining table
+		    Customer managed:  
+		In real world :
+		    Provider Managed: Networking, storage, server, virtualization, OS, Middleware, Runtime,Data, Applications.
+		    Customer Managed: 
+
+Deployment Models: Public, Private, Hybrid, Community.
+	Public Cloud: In Public cloud,the shared access to computing services are given to the users that is, users can share the same infrastructure for their applications.
+	Private Cloud: Private cloud is a pool of resources meant exclusively for a single organization. It can either be owned by an organization or can be rented from a cloud provider.
+	Hybrid cloud: Hybrid cloud refers to a cloud computing environment that uses the combination of both: the private cloud and the public cloud.
+What is Microsoft Azure?
+	Microsoft Azure is a cloud provider owned by Microsoft; it provides various web-scale cloud services such as compute, storage, networking etc..
+	Establishment: launched on February 1, 2010.
+	Widely recognized: Used by more than 90% of Fortune 500 companies
+	Cost effective: Free to get started; offers the pay-per-use pricing model
+	Multi-language support: Supports multiple languages viz. c#, NodeJS, Java and more
+	Availability Zones: Data centers in 54 regions around the world, and available in 140 countries..(datacenters.microsoft.com/globe/explore)
+
+
+
+Data centers:
+A data center is a physical facility or building that houses computer systems, servers, and related equipment to store, process, and manage digital data
+
+Availability zones:
+An availability zone (AZ) is a physically separate, isolated fault domain within a cloud region that contains one or more discrete data centers with independent power, cooling, and networking
+
+Regions:
+A cloud region is a specific, independent geographic area where a cloud provider houses physical data centers
+
+
+portal.azure.com
+Microsoft Azure Services: Microsoft azure offers various web-scale cloud services that are grouped together on the basis of different business usage. These groups are called domains. Some of the main domains are:
+Compute, Networking, Storage, Database.
+
+Using services we create resources.
+
+Azure Services: 
+Compute
+	Virtual Machine
+	Function App
+	App Service
+	Kubernetes Service
+	......
+Networking 
+	Virtual Networks
+	Load Balancers
+	Application Gateway
+	DNS zones
+	CDN Profiles
+	......
+Storage
+	Blob
+	File Storage
+	Table
+	Queue
+	Data Lake Storage
+	Data Box
+	......
+Database
+	SQL Database
+	CosmosDB
+	Data Factory
+	Data Lake Analytics
+
+Create a Microsoft Azure account
+azure.microsoft.com  - free trial account for 30 dayswith 200$ credits.
+
+
+Ways of accessing Microsoft Azure
+Microsoft provides various ways to access the Microsoft azure platform. For those who prefer a GUI, there is Azure Classic Portal. For those who prefer command line tools, there is Azure PowerShell or Azure CLI
+
+
+
+
