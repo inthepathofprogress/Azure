@@ -1,0 +1,245 @@
+Introduction to Microsoft Azure Storage
+
+Microsoft Azure Storage is an umbrella term that represents a suite of cloud-based, highly available and durable storage services that are fully managed by Microsoft and curated for modern-day data storage scenarios
+
+This suite of cloud-based Microsoft managed storage services main comprises four types of storage services in Azure:
+	Azure Blob storage
+	Azure Table storage
+	Azure Queue storage
+	Azure File storage
+
+Benefits of Azure Storage:
+	Security : Azure provides top-notch security as data stored or written in Azure Storage is encrypted. Azure storage offers full control over who can and cannot access our data
+	Accessibility : The data stored in Microsoft Azure storage is mage accessible over HTTP or HTTPS from anywhere in the world
+	Scalability : Azure storage is highly scalable in order to meet the on-demand requirements of modern applications
+	High availability : Users are given the option of replicating their data across multiple data centers so that the data stays available even in the event of outages.
+
+Azure Storage Account
+
+In order to use any type of Azure Storage, we need to create an account first, which is referred to as an Azure storage account
+
+Using this account, we can manage and access the storage resources 
+All our storage data, including blobs, files, queues and tables, resides in our storage account
+The storage account provides a unique namespace for our storage data that is accessible from anywhere over HTTP and HTTPS
+
+Types of storage accounts:
+Microsoft offers multiple types of storage accounts, each capable of handling different types of storage data.
+General-purpose Storage account: The General purpose storage account, as the name suggests, is a storage account that can store any type of storage data in feneral such as object data, NoSQL, queues or files.
+	Azure Blob(images, audio,video), Azure Table(structured data), Azure Queue(data from one location to another location buffer), Azure File ( mounting in a machine)
+
+Portal -> Storage accounts -> Create with basic details
+Basic : Subscription, Resource group
+	Instance details: Storage account name, region, preferred storage type, performance, redundancy
+create
+
+
+Azure Storage replication:
+
+Determine Replication Strategy:
+LRS (locally Redundant storage):
+	Three replicas, one region.[one dc]
+	Protects against disk, node, rack failures,
+	Write is acknowledged when all replicas are committed.
+	Superior to dual parity RAID.
+ZRS ( Zone Redundant storage):	
+	Three replicas, three zones, one region
+	Protects against disk, node, rack and zone failures.
+	Synchronous writes to all three zones
+GRS (Geo redundant storage 2 lrs with 2 regions) :
+	Six replicas, two region (three per region)
+	Protects against major regional disasters
+	Asynchronous copy to secondary
+RA-GRS (2-LRS with secondary ra)
+	GRA+read access to secondary
+	Separate secondary end point
+	Recovery point objective(RPO) delay to secondary can be queried.
+
+GZRS (primary zrs, secondary lrs)
+	Six replicas, 3+1 zones, two regions
+	Protects against disk, node, rack, zone, and region failures
+	Synchronous writes to all three zones and asynchronous copy to secondary
+
+RA-GZRS (primary RA+grs, secondary lrs)
+	GZRS + read access to secondary
+	Separate secondary endpoint
+	RPO delay to secondary can be queried.
+
+region typically >300mi
+
+
+Azure Blob Storage:
+blob: binary large objects
+Blob storages are usually used to store large binary files such as audio, video, text, etc.
+Can be used to store data for archiving, backups, restoring
+can be used to serve images/documents directly to a given browser
+Can be used for writing log files.
+
+Azure Blob storage is Microsoft's object storage solution. Azure Blob is used to store unstructured data. Stores data of any format for distributed access.
+Portal -> storage accounts -> data storage -> container
+ storage account -> Configuration -> blob anonymous access (enable, disable)
+container -> change access level ( private, blob, container )
+
+Blob storage accounts lets us choose the access tier that suits us the best.
+Access tiers: Hot(regular), Cool(30 days), cold(90 days), archieve(6m)
+( no archieve option in storage account -> configuratino)
+So create a life cycle management
+Storage account -> data management -> life cycle management -> add rule
+
+Three types of blob storage accounts:
+Blob blob : blobs data in the form of audio, images, videos
+Page blob : Virutal Hard disks data type
+Appened blob : Log files
+
+
+Azure File Storage
+Storage account -> Data storage -> File share -> create
+Basics:
+	Name
+	Access tier ( premium, transaction optimized, hot, cool)
+	Performance : Maximum IO/s, maximum capacity
+create
+Create a simple vm
+Connect -> driver show script and run in PowerShell
+
+Azure file storage is used when we want to share a common storage mount point among multiple computers.
+Shared application settings
+Diagnostic share: logs metrics
+Dev/Test/debug: tools, utilities etc
+
+ Azure File Storage is a clod service that offers fully managed file shares in the cloud that are accessible via the server message block(SMB) protocol.[port:445]
+Azure file shares can be mounted concurrently by cloud or on-premises deployments of windows, linux and macos
+
+Benefits:
+Share access
+Fully managed
+Resiliency
+
+
+Azure File Sync:
+Azure File Sync allows the synchronization of on-premises file servers with Azure Files supported by Storage Accounts.
+
+Azure File Sync provides on-premises users and application with quicker access to cloud files
+It is powered by local caches and it continually synchronizes with windows server
+This helps organizations with multiple sites centralize their files onto a single shared server or VM
+
+
+Azure Table Storage 
+Why?
+- It stores structured NoSQL data in the cloud.
+- Fast and cost-effective
+- Used to store flexible datasets
+- Stores any number of entities in a table.
+What?
+Azure Table Storage is an Azure cloud service that allows us to store large amounts of structured data in a NoSQL key/value store.
+Azure tables are ideal for storing structured, non-relational data.
+When?
+Large amounts of data : Azure Table Storage is used to store large amounts (terabytes) of data capable of serving web-scale applications.
+De-normalized data : Azure table storage is used to store datasets that dont require complex joins, foreign keys, etc.
+Fast access : Azure table storage is used in quickly querying data using a clustered index
+
+Portal :
+Storage account -> Data storage -> Tables -> +Table -> Table name
+
+
+Azure Table Storage Concepts:
+
+1. URL Format : Azure Table storage accounts use this url format to be accessed: 
+	http://<storageaccount>.table.core.windows.net/<table>
+2. Accounts : All access to azure storage is done via a storage account.
+3. Tables : A table is a collection of entities.
+4. Entities : An entity is a set of properties, like a database row.
+5. Properties : A property is a key/value pair contained in an entity. An entity has three system properties: a partition key, a row key, and a timestamp. Entities with the same partition key can be queried more quickly.
+
+Azure Table Storage Keys:
+In Azure table storage eery entity has a primary key. This primary key is a composite key that is made up of two parts: Partition key and row key
+
+Partition Key : 
+A partition key is used to partition a table to support load balancing.
+It is used to identify the partition that an entity belongs to.
+Row Key:
+A row key is used to uniquely identify an entity (record) in a given partition.
+The partition key and the row key together form the primary key for an entity.
+
+Microsoft Azure storage explorer is needed to add an entry in table. Can also add entries using storage browser in portal -> Storage account -> storage browser.
+
+
+
+
+Azure Storage Queue
+Portal -> Storage accounts -> Data storage -> Queue -> +queue -> name
+Why?
+Storage queues allow us to put messages in them, so other processes can read and process those messages; e.g., a message might contain the email address of a newly signed up user. Other processes can take messages from the queue and send those messages as emails.
+What?
+Azure queue storage is a service for storing large number of messages that can be accessed from anywhere in the world.
+Concepts:
+Accounts - All access to Azure storage is done via a storage account
+URL Format - Queues are addressable using the following URL format: https://<storageaccount>.queue.core.windows.net/<queue>
+Queues - A queue contains a set of messages. The queue name must be in lowercase.
+Messages - A message can be in any format and up to 64kb. The maximum time-to-live allowed is any positive or -1 indicating that the message doesn't expire. the default timetolive is 7 days.
+(FIFO)
+
+Azure Storage explorer
+It is a standalone app that enables us too easily work with azure storage data on windows, macos and linux
+It is free to download from the Microsoft website.
+we need to connect to our storage account via azure storage explorer to be able to use it.
+
+Using access keys or subscriptions we can connect to it/
+
+
+
+Azure Shared access signature SAS:
+
+Portal -> storage accounts-> security+networking-> access keys ( gives complete access), shared access signature( particular area only)
+
+Why?
+A shared access signature (SAS) is a token that grants restricted access rights to Azure Storage resources. With SAS, we can grant clients access to resources in our storage account, without sharing our account keys.
+
+What is SAS in a blob storage?
+SAS is a secure token that allows us to specify the timespan and permissions allowed for accessing a storage resource such as blob or a container.
+If we want to grant someone/application access to a storage resource for a specified time, we can generate an SAS token that the person/application would need to provide for gaining access to the specified resource within the specified time.
+
+
+
+Azure Data Factory.
+Azure Data Factory is a cloud-based data integration service that allows us to create data driven workflows in the cloud for orchestrating and automating data movement and data transformation. These data driven workflows that can  ingest data from various data stores.
+data sources-> ingest-> prepare->transform->publish
+ETL: extract, transform and load
+
+Copy Data Tool
+	The Azure Data Factory copy data tool eases and optimises the process of transferring data between the source and the destination data store.
+
+For example, it may be used to copy data from a blob storage to an SQL database.
+Some of the benefits of using the copy data tool are:
+No need to understand the Data Factory workflow to use this tool
+The tool creates required resources to transfer data automatically
+It helps us avoid errors by validating the data that is being ingested.
+
+
+
+Azure Data Box
+Azure Data Box is a service offered by Microsoft azure that lets us transfer terabytes of data to Azure in a quick, inexpensive and reliable way.
+Data transfer takes place by shipping us a proprietary Data Box storage device. The device is transported to our data centre through a regional carrier and has a rugged casing to protect and secure the data during the transit.
+
+Order -> receive -> copy data -> return -> upload
+
+Use cases:
+One-time migration
+Initial bulk transfer
+periodic uploads
+
+
+Transferring data over the internet can take days, weeks or even months. To avoid this, Microsoft provides the import/export service, where we ship our physical disks directly to azure data centers, and they will upload the data for us.
+
+Use cases:
+Data migration to cloud
+Content distribution
+backup
+data recovery
+ 
+
+
+
+
+
+
+
