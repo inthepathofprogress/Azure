@@ -1,0 +1,73 @@
+Azure Subscription
+
+Whenever we are creating any resource we need Subscription, Resource Group and Location.
+
+An Azure subscription is a logical container and a binding agreement with Microsoft that grants you access to, manages, and bills for your cloud resources
+
+An Azure resource group is a logical container that holds related cloud services and infrastructure for an application or solution
+
+PowerShell Commands:
+> Get-AzSubscription # info about subscription
+> Get-azresourcegroup # info about resourcegroup
+# to get info about anything use get
+
+Bash Commands:
+$ az account list # subscription details
+$ az account list --output table # subscription details in a table format
+$ az group list -- output table # resource group details in a table format
+$ az group show --name "groupname"
+
+
+Azure Subscription and Resource Groups.
+
+Azure Subscription is an active agreement between Microsoft and its users. This agreement provides users the needed access to avail the services and resources offered by Microsoft Azure.
+An azure account can be associated with multiple subscriptions for separate billings based on user defined criteria.
+
+Azure Subscription is equivalent to AWS Organization.
+
+A resource group in Azure is simply a collection of related Azure assets or Azure services that belong to an application or workload together
+800,000 resources can be in a resource group
+Stores meta data about the resources
+
+Creating a resource group using AZ POrtal
+Go to Resource Manager|Resource Groups -> click 'Create'
+
+Basics:
+	Subscription
+	Resource group name
+	Region
+Tags:
+	Name : Value Resource Group
+Review + Create:
+	Create
+
+
+
+Understanding Azure Architecture
+
+Understanding Azure Resource Manager 
+When any tool is used to take actions on Azure resources, the Azure Resource Manager API handles that request. The API passes the request to the Resource Manager, which authenticates and authorizes it. The Resource Manager then routes the request to the appropriate service 
+
+Azure Portal, Azure Powershell, Azure  CLI, Rest CLients -> Azure Resource Manager -> Authentication -> Azure Resource Manager -> Azure services -> creates/deletes/changes
+
+-> Azure Resource Manager(ARM) is the deployment and management service for Azure resources.
+-> Using this service, users can create, update and delete resources in their subscription
+-> It offers features such as access control, auditing and tagging to secure and organize resources after deployment.
+
+Go to created Resource Group -> Create
+Search web app -> Create
+Create with basic details.
+
+Tags and Resource Locks
+
+Tags are used for the purpose of organising our Azure resources. Each tag consists of two components : Name and value 
+up to 50 tags
+
+
+There are two types of locks : Read-only and delete
+Read-only : Cant modify
+Delete : Can modify but cant delete
+
+
+If lock is applied at  resource level the resource group and resource also will inherit the same.
+
